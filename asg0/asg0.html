@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSE 160 Assignment 0</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="cnv1" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+    <script src="asg0.js"></script>
+    <script src="lib/cuon-matrix-cse160.js"></script>
+    <br>
+    <label for="x1">v1: x</label>
+    <input type="number" id="x1" name="x1"/>
+    <label for="y1">y</label>
+    <input type="number" id="y1" name="y1"/>
+    <br>
+    <label for="x2">v2: x</label>
+    <input type="number" id="x2" name="x2"/>
+    <label for="y2">y</label>
+    <input type="number" id="y2" name="y2"/>
+    <br>
+    <input type="button" id="drawbutton" name="drawbutton" value="Draw"/>
+    <br><br>
+    <label for="operation">Operation: </label>
+    <select type="operation" id="operationselect">
+      <option value="add">Add</option>
+      <option value="sub">Subtract</option>
+      <option value="mul">Multiply</option>
+      <option value="div">Divide</option>
+      <option value="mag">Magnitude</option>
+      <option value="nor">Normalize</option>
+      <option value="ang">Angle between</option>
+      <option value="area">Area</option>
+    </select>
+    <label for="scalar">Scalar: </label>
+    <input type="number" id="scalar" name="scalar"/>
+    <br>
+    <input type="button" id="drawbutton2" name="drawbutton2" value="Draw"/>
+  </body>
+</html>
