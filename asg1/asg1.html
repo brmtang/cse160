@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head>
+
+  <body onload="main()">
+    <p>Bruce Tang</p>
+    <p>brmtang@ucsc.edu</p>
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+    <p>
+    <button type="button" id="clearButton">Clear Canvas</button>
+    <button type="button" id="drawPicture">Draw Picture</button>
+    <p>
+    <p>Drawing Mode:</p>
+    <button type="button" id="pointButton">Squares</button>
+    <button type="button" id="triButton">Triangles</button>
+    <button type="button" id="circleButton">Circles</button>
+    <p>
+    <p>Shape Color:</p>
+    Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide">
+    Green <input type="range" min="0" max="100" value="100" class="slider" id="greenSlide">
+    Blue <input type="range" min="0" max="100" value="100" class="slider" id="blueSlide">
+    <p>
+    Shape Size: <input type="range" min="5" max="40" value="5" class="slider" id="sizeSlide">
+    (Circles) Segments Count <input type="range" min="3" max="50" value="10" class="slider" id="segmentSlide">
+    <p>
+    This is what I have added for "Awesomeness."<br>
+    <button type="button" id="musicButton">Music</button>
+    <audio id="music" src="Music to Delight.mp3"></audio>
+    <br>
+    Below is my drawing on paper.
+    <br>
+    <img src="IMG_5018.jpg" width="500">
+    <p>
+    <script src="../../examples/lib/webgl-utils.js"></script>
+    <script src="../../examples/lib/webgl-debug.js"></script>
+    <script src="../../examples/lib/cuon-utils.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Point.js"></script>
+    <script src="asg1.js"></script>
+  </body>
+</html>
