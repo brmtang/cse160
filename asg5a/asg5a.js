@@ -144,9 +144,9 @@ function main() {
 
 	}
 
-	const boxWidth = 5;
-	const boxHeight = 5;
-	const boxDepth = 5;
+	const boxWidth = 1000;
+	const boxHeight = 1000;
+	const boxDepth = 1000;
 	const geometry = new THREE.BoxGeometry( boxWidth, boxHeight, boxDepth );
 
 	function makeInstance( geometry, color, x ) {
@@ -163,8 +163,8 @@ function main() {
 	}
 
 	const cubes = [
-		makeInstance( geometry, 0x44aa88, 0 ),
-		makeInstance( geometry, 0x8844aa, -2 ),
+		makeInstance( geometry, 0x44aa88, 1000 ),
+		makeInstance( geometry, 0x8844aa, -998 ),
 		makeInstance( geometry, 0xaa8844, 2 ),
 	];
 
