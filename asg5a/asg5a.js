@@ -164,9 +164,21 @@ function main() {
 
 	const cubes = [
 		makeInstance( geometry, 0x44aa88, 1000 ),
-		makeInstance( geometry, 0x8844aa, -998 ),
-		makeInstance( geometry, 0xaa8844, 2 ),
+		makeInstance( geometry, 0x8844aa, -998 )
 	];
+	const loader = new THREE.TextureLoader();
+	loader.load( 'https://threejs.org/manual/examples/resources/images/wall.jpg', ( texture ) => {
+
+		texture.colorSpace = THREE.SRGBColorSpace;
+
+		const material = new THREE.MeshBasicMaterial( {
+			map: texture,
+		} );
+		const cube = new THREE.Mesh( geometry, material );
+		scene.add( cube );
+		cubes.push( cube ); // add to our list of cubes to rotate
+
+	} );
 
 	function render(time) {
 
