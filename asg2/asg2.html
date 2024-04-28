@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head>
+
+  <body onload="main()">
+    <p>Bruce Tang</p>
+    <p>brmtang@ucsc.edu</p>
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+    <p id="performance">XXX</p>
+    <p>
+    <button type="button" id="clearButton">Clear Canvas</button>
+    <p>
+    <p>Drawing Mode:</p>
+    <button type="button" id="pointButton">Squares</button>
+    <button type="button" id="triButton">Triangles</button>
+    <button type="button" id="circleButton">Circles</button>
+    <p>
+    <p>Shape Color:</p>
+    Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide">
+    Green <input type="range" min="0" max="100" value="100" class="slider" id="greenSlide">
+    Blue <input type="range" min="0" max="100" value="100" class="slider" id="blueSlide">
+    <p>
+    Magenta: <input type="range" min="-45" max="45" value="0" class="slider" id="magentaSlide">
+    <p>
+    Yellow: <input type="range" min="-45" max="45" value="0" class="slider" id="yellowSlide">
+    <p>
+    Yellow Animation:
+    <button type="button" id="animationYellowOnButton">ON</button>
+    <button type="button" id="animationYellowOffButton">OFF</button>
+    <p>
+    Magenta Animation:
+    <button type="button" id="animationMagentaOnButton">ON</button>
+    <button type="button" id="animationMagentaOffButton">OFF</button>
+    <p>
+    Camera Angle: <input type="range" min="0" max="90" value="5" class="slider" id="angleSlide">
+    <p>
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Point.js"></script>
+    <script src="Cube.js"></script>
+    <script src="asg2.js"></script>
+  </body>
+</html>
