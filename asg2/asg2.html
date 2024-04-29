@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Change a point color</title>
+    <title>Blocky Animal</title>
   </head>
 
   <body onload="main()">
@@ -13,31 +13,28 @@
     </canvas>
     <p id="performance">XXX</p>
     <p>
-    <button type="button" id="clearButton">Clear Canvas</button>
+    Camera Angle: <input type="range" min="-360" max="360" value="0" class="slider" id="angleSlide">
     <p>
-    <p>Drawing Mode:</p>
-    <button type="button" id="pointButton">Squares</button>
-    <button type="button" id="triButton">Triangles</button>
-    <button type="button" id="circleButton">Circles</button>
+    Left Front Leg Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="leftFrontSlide">
+    Right Front Leg Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="rightFrontSlide">
+    Left Back Leg Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="leftBackSlide">
+    Right Back Leg Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="rightBackSlide">
+    Leg Animations:
+    <button type="button" id="animationLegOnButton">ON</button>
+    <button type="button" id="animationLegOffButton">OFF</button>
     <p>
-    <p>Shape Color:</p>
-    Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide">
-    Green <input type="range" min="0" max="100" value="100" class="slider" id="greenSlide">
-    Blue <input type="range" min="0" max="100" value="100" class="slider" id="blueSlide">
-    <p>
-    Magenta: <input type="range" min="-45" max="45" value="0" class="slider" id="magentaSlide">
-    <p>
-    Yellow: <input type="range" min="-45" max="45" value="0" class="slider" id="yellowSlide">
-    <p>
-    Yellow Animation:
-    <button type="button" id="animationYellowOnButton">ON</button>
-    <button type="button" id="animationYellowOffButton">OFF</button>
-    <p>
-    Magenta Animation:
-    <button type="button" id="animationMagentaOnButton">ON</button>
-    <button type="button" id="animationMagentaOffButton">OFF</button>
-    <p>
-    Camera Angle: <input type="range" min="0" max="90" value="5" class="slider" id="angleSlide">
+    Tail Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="tailSlide">
+    Head Angle: <input type="range" min="-15" max="15" value="0" class="slider" id="headSlide">
+    Jaw Angle: <input type="range" min="-15" max="0" value="0" class="slider" id="jawSlide">
+    Tail Animations:
+    <button type="button" id="animationTailOnButton">ON</button>
+    <button type="button" id="animationTailOffButton">OFF</button>
+    Head Animations:
+    <button type="button" id="animationHeadOnButton">ON</button>
+    <button type="button" id="animationHeadOffButton">OFF</button>
+    Jaw Animations:
+    <button type="button" id="animationJawOnButton">ON</button>
+    <button type="button" id="animationJawOffButton">OFF</button>
     <p>
     <script src="lib/webgl-utils.js"></script>
     <script src="lib/webgl-debug.js"></script>
