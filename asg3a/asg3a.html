@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blocky Animal</title>
+  </head>
+
+  <body onload="main()">
+    <p>Bruce Tang</p>
+    <p>brmtang@ucsc.edu</p>
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+    <p id="performance">XXX</p>
+    <p>
+    Camera Angle: <input type="range" min="-360" max="360" value="0" class="slider" id="angleSlide">
+    <button type="button" id="xaxisButton">X Axis</button>
+    <button type="button" id="yaxisButton">Y Axis</button>
+    <p>
+    Left Front Leg Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="leftFrontSlide">
+    Right Front Leg Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="rightFrontSlide">
+    Left Back Leg Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="leftBackSlide">
+    Right Back Leg Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="rightBackSlide">
+    Leg Animations:
+    <button type="button" id="animationLegOnButton">ON</button>
+    <button type="button" id="animationLegOffButton">OFF</button>
+    <p>
+    Tail Angle: <input type="range" min="-30" max="30" value="0" class="slider" id="tailSlide">
+    Head Angle: <input type="range" min="-15" max="15" value="0" class="slider" id="headSlide">
+    Jaw Angle: <input type="range" min="-15" max="0" value="0" class="slider" id="jawSlide">
+    Tail Animations:
+    <button type="button" id="animationTailOnButton">ON</button>
+    <button type="button" id="animationTailOffButton">OFF</button>
+    Head Animations:
+    <button type="button" id="animationHeadOnButton">ON</button>
+    <button type="button" id="animationHeadOffButton">OFF</button>
+    Jaw Animations:
+    <button type="button" id="animationJawOnButton">ON</button>
+    <button type="button" id="animationJawOffButton">OFF</button>
+    <p>
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Point.js"></script>
+    <script src="Cube.js"></script>
+    <script src="asg3a.js"></script>
+  </body>
+</html>
