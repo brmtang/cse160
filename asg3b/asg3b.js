@@ -327,14 +327,6 @@ function keydown(ev) {
   console.log(ev.keyCode);
 }
 
-function placeBlock() {
-  var block = new Cube();
-  block.color = [1.0,0.0,0.0,1.0];
-  block.textureNum = -2;
-  block.matrix.translate(8-4, 0, 8-4);
-  block.render();
-}
-
 var g_map = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
@@ -374,7 +366,7 @@ function drawMap() {
   for (x = 0; x < 32; x++) {
     for (y = 0; y < 32; y++) {
       for (z = 0; z < 3; z++) {
-        if (g_map[x][y] == 1) {
+        if (g_map[x][y] >= 1) {
           var wall = new Cube();
           wall.color = [1.0,1.0,1.0,1.0];
           wall.textureNum = -2;
@@ -384,6 +376,18 @@ function drawMap() {
       }
     }
   }
+}
+
+function placeBlock() {
+  let f = new Vector3();
+  f.set(g_camera.at);
+  f.sub(g_camera.eye);
+  f.normalize();
+  let g = new Vector3();
+  g.set(g_camera.eye);
+  g.add(f);
+  g_map[Math.floor(g.elements[0])][Math.floor(g.elements[2])] += 5;
+  renderAllShapes();
 }
 
 function renderAllShapes() {
