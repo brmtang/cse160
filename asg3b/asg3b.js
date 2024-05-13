@@ -321,6 +321,8 @@ function keydown(ev) {
     g_camera.panRight();
   } else if (ev.keyCode == 82) {
     placeBlock();
+  } else if (ev.keycode == 70) {
+    deleteBlock();
   }
   renderAllShapes();
   g_camera.setCamera();
@@ -386,7 +388,7 @@ function placeBlock() {
   let g = new Vector3();
   g.set(g_camera.eye);
   g.add(f);
-  g_map[Math.floor(g.elements[0])][Math.floor(g.elements[2])] += 5;
+  g_map[Math.floor(g.elements[0])+4][Math.floor(g.elements[2])+4] += 1;
   renderAllShapes();
 }
 
