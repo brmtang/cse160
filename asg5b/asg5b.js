@@ -30,19 +30,19 @@ function main() {
 
 		const loader2 = new THREE.CubeTextureLoader();
 		const texture2 = loader2.load( [
-			'https://threejs.org/manual/examples/resources/images/cubemaps/computer-history-museum/pos-x.jpg',
-			'https://threejs.org/manual/examples/resources/images/cubemaps/computer-history-museum/neg-x.jpg',
-			'https://threejs.org/manual/examples/resources/images/cubemaps/computer-history-museum/pos-y.jpg',
-			'https://threejs.org/manual/examples/resources/images/cubemaps/computer-history-museum/neg-y.jpg',
-			'https://threejs.org/manual/examples/resources/images/cubemaps/computer-history-museum/pos-z.jpg',
-			'https://threejs.org/manual/examples/resources/images/cubemaps/computer-history-museum/neg-z.jpg',
+			'px.jpg',
+			'nx.jpg',
+			'py.jpg',
+			'ny.jpg',
+			'pz.jpg',
+			'nz.jpg',
 		] );
 		scene.background = texture2;
 		
 		const planeSize = 40;
 
 		const loader = new THREE.TextureLoader();
-		const texture = loader.load( 'https://threejs.org/manual/examples/resources/images/checker.png' );
+		const texture = loader.load( '66416ebef66e8c0453ae5c95a6f022ed4e411cd8_2000x2000.webp' );
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapT = THREE.RepeatWrapping;
 		texture.magFilter = THREE.NearestFilter;
@@ -61,29 +61,76 @@ function main() {
 
 	}
 
-	{
-
-		const cubeSize = 4;
+	function makeCube( size, colour, x, y, z ) {
+		const cubeSize = size;
 		const cubeGeo = new THREE.BoxGeometry( cubeSize, cubeSize, cubeSize );
-		const cubeMat = new THREE.MeshStandardMaterial( { color: '#8AC' } );
+		const cubeMat = new THREE.MeshStandardMaterial( { color: colour } );
 		const mesh = new THREE.Mesh( cubeGeo, cubeMat );
-		mesh.position.set( cubeSize + 1, cubeSize / 2, 0 );
+		mesh.position.set(x + 1, y / 2, z);
 		scene.add( mesh );
-
+		return mesh;
 	}
 
-	{
-
-		const sphereRadius = 3;
+	function makeSphere(size, colour, x, y, z) {
+		const sphereRadius = size;
 		const sphereWidthDivisions = 32;
 		const sphereHeightDivisions = 16;
 		const sphereGeo = new THREE.SphereGeometry( sphereRadius, sphereWidthDivisions, sphereHeightDivisions );
-		const sphereMat = new THREE.MeshStandardMaterial( { color: '#CA8' } );
+		const sphereMat = new THREE.MeshStandardMaterial( { color: colour } );
 		const mesh = new THREE.Mesh( sphereGeo, sphereMat );
-		mesh.position.set( - sphereRadius - 1, sphereRadius + 2, 0 );
+		mesh.position.set(x, y, z);
 		scene.add( mesh );
-
+		return mesh;
 	}
+
+	function makeCone(size, height, segments, colour, x, y, z) {
+		const coneRadius = size;
+		const coneHeight = height;
+		const coneSegments = segments;
+		const coneGeo = new THREE.ConeGeometry( coneRadius, coneHeight, coneSegments );
+		const coneMat = new THREE.MeshStandardMaterial( { color: colour } );
+		const mesh = new THREE.Mesh( coneGeo, coneMat );
+		mesh.position.set(x, y, z);
+		scene.add( mesh );
+		return mesh;
+	}
+
+	function makeCylinder(top, bottom, height, segments, colour, x, y, z) {
+		const cylinderTop = top;
+		const cylinderBottom = bottom;
+		const cylinderHeight = height;
+		const cylinderSegments = segments;
+		const cylinderGeo = new THREE.CylinderGeometry(cylinderTop, cylinderBottom, cylinderHeight, cylinderSegments);
+		const cylinderMat = new THREE.MeshStandardMaterial( { color: colour } );
+		const mesh = new THREE.Mesh( cylinderGeo, cylinderMat );
+		mesh.position.set(x,y,z);
+		scene.add(mesh);
+		return mesh;
+	}
+
+	const shapes = [
+		makeCone(5, 5, 4, '#FFFF00', 4, 2.5, 0), // 1
+		makeCone(3, 3, 4, '#FFFF00', 9, 1.5, 4.5), // 2
+		makeCone(2, 2, 4, '#FFFF00', 9, 1.5, -4.5), // 3
+		makeCube(0.5, '#FFFF00', -17, 0.25, 0), // 4
+		makeCube(0.5, '#FFFF00', -16, 0.25, 0), // 5
+		makeCube(0.5, '#FFFF00', -15, 0.25, 0), // 6
+		makeCube(0.5, '#FFFF00', -14, 0.25, 0), // 7
+		makeCube(0.5, '#FFFF00', -13, 0.25, 0), // 8
+		makeCube(0.5, '#FFFF00', -12, 0.25, 0), // 9
+		makeCube(0.5, '#FFFF00', -11, 0.25, 0), // 10
+		makeCube(0.5, '#FFFF00', -17, 0.25, 2), // 11
+		makeCube(0.5, '#FFFF00', -16, 0.25, 2), // 12
+		makeCube(0.5, '#FFFF00', -15, 0.25, 2), // 13
+		makeCube(0.5, '#FFFF00', -14, 0.25, 2), // 14
+		makeCube(0.5, '#FFFF00', -13, 0.25, 2), // 15
+		makeCube(0.5, '#FFFF00', -12, 0.25, 2), // 16
+		makeCube(0.5, '#FFFF00', -11, 0.25, 2), // 17
+		makeCylinder(0.05, 0.05, 0.7, 10, '#964B00', -15, 0.35, 3), // 18
+		makeCylinder(0.05, 0.05, 0.7, 10, '#964B00', -15, 0.35, -2), // 19
+		makeSphere(0.2, '#00AA00', -15, 0.7, 3), // 20
+		makeSphere(0.2, '#00AA00', -15, 0.7, -2), // 21
+	];
 
 	class ColorGUIHelper {
 
@@ -124,6 +171,38 @@ function main() {
 			this.obj[ this.prop ] = THREE.MathUtils.degToRad( v );
 
 		}
+
+	}
+
+	{
+
+		const color = 0xFFFFFF;
+		const intensity = 1;
+		const light = new THREE.AmbientLight( color, intensity );
+		scene.add( light );
+
+		const gui = new GUI();
+		gui.addColor( new ColorGUIHelper( light, 'color' ), 'value' ).name( 'color' );
+		gui.add( light, 'intensity', 0, 5, 0.01 );
+
+	}
+
+	{
+
+		const color = 0xFFFFFF;
+		const intensity = 1;
+		const light = new THREE.DirectionalLight( color, intensity );
+		light.position.set( 0, 10, 0 );
+		light.target.position.set( - 5, 0, 0 );
+		scene.add( light );
+		scene.add( light.target );
+
+		const gui = new GUI();
+		gui.addColor( new ColorGUIHelper( light, 'color' ), 'value' ).name( 'color' );
+		gui.add( light, 'intensity', 0, 5, 0.01 );
+		gui.add( light.target.position, 'x', - 10, 10, .01 );
+		gui.add( light.target.position, 'z', - 10, 10, .01 );
+		gui.add( light.target.position, 'y', 0, 10, .01 );
 
 	}
 
